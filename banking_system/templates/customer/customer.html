@@ -1,0 +1,27 @@
+{% extends 'customer/index.html' %}
+{% load static %}
+{% block content %}
+<h1 id="head" style="color: black;">Customers List</h1>
+<br>
+<table class="table table-hover" id="tb">
+    <thead id="tbhead">
+      <tr >
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cust in customer_list %} 
+      <tr>
+        <th scope="row">{{cust.id}}</th>
+        <td><a href="{% url 'customer:profile' cust.id%}">{{cust.name}}</a></td>
+        <td>{{cust.email}}</td>
+        <td>Rs.{{cust.balance}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <title>Banking System</title>
+  <link rel="stylesheet" href="{% static 'css/index.css'%}">
+
+  <title>Banking System</title>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+  
+  <body>
+    <!-- Start vertical navbar -->
+    <header id="header">
+       <div class="vertical-nav bg-dark" id="sidebar">
+          <div class="py-4 px-3 mb-2 " id="side">
+            <div class="align-items-center" id="half">    
+               <a class="navbar-brand text-center" href="{% url 'customer:home'%}"><h1>Banking System</h1></a>
+            </div>
+          </div>
+          
+          <div class="sidelist">
+          <ul class="nav flex-column bg-dark mb-0">
+            <li class="nav-item">
+              <a href="{% url 'customer:home' %}" class="new nav-link text-light font-italic">
+                <i class="fa fa-th-large mr-3 fa-fw"></i>Home
+              </a>  
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'customer:customer_list' %}" class="new nav-link text-light font-italic">
+                <i class="fa fa-address-card mr-3 fa-fw"></i>
+                Customers
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'customer:history' %}" class="new nav-link text-light font-italic ">
+                <i class="fas fa-clipboard-list mr-3 fa-fw"></i>
+                History
+              </a>
+            </li>
+          </ul>
+        </div>
+       </div>
+    </header>
+   
+    <div class="page-content p-5 bgimg-1" id="content" style="background-image: url('static/images/img2.jpg');">
+      
+      {% block content %}
+       
+        <h2 class="display-4 font-weight-bold text-center " id="mainhead">Welcome to the Sparks Bank</h2>
+        <div class="separator mt-4"></div>
+
+        <div class="row">
+          <div class="column" style="width:50%; margin-left: 20px;">
+            <h4 id="quote" >You can't grow unless your banking system is expanding and you are extending credit.</h4>
+            <br>
+            <p id="writer">~Stephen A. Schwarzman</p>
+            <br>
+            <a href="{% url 'customer:customer_list' %}"><button type="button" class="btn btn-success" style="margin-left: 30px;">Transfer Money</button></a>
+          </div>
+        </div>
+  {% endblock %}
+    </div>
+
+  </body> 
+</html>
+
+
+

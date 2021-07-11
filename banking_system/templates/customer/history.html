@@ -1,0 +1,29 @@
+{% extends 'customer/index.html' %}
+{% load static %}
+{% block content %}
+<h1 id="head" style="color: black;">Transaction History</h1>
+<br>
+<table class="table table-hover" id="tb">
+    <thead id="tbhead">
+      <tr >
+        <th scope="col">Transfer Id</th>
+        <th scope="col">Timestamp</th>
+        <th scope="col">Sender</th>
+        <th scope="col">Receiver</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for his in transfer_his %} 
+      <tr>
+        <th scope="row">{{his.id}}</th>
+        <td>{{his.timestamp}}</td>
+        <td>{{his.sender.name}}</td>
+        <td>{{his.receiver.name}}</td>
+        <td>Rs.{{his.amount}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
